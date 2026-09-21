@@ -1,3 +1,4 @@
+#include "hardware/gpio.h"
 #include "pico/stdlib.h"
 
 // константы
