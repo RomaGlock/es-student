@@ -3,6 +3,7 @@
 
 #include "led/led.h"
 #include "logging/log.h"
+#include "device/device.h"
 
 // константы
 const uint BUTTON_PIN = 15;
@@ -30,6 +31,10 @@ void handle_command(int command)
     else if (command == 'v')
     {
         log_version();
+    }
+    else if (command == 'i')
+    {
+        device_info();
     }
     else
     {
