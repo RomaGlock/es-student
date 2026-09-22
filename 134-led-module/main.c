@@ -2,6 +2,7 @@
 #include "pico/stdlib.h"
 
 #include "led/led.h"
+#include "logging/log.h"
 
 // константы
 const uint BUTTON_PIN = 15;
@@ -19,16 +20,20 @@ void handle_command(int command)
     if (command == 'e')
     {
         led_set(true);
-        printf("led %s\n", led_is_on() ? "on" : "off");
+        LOG_INF("led %s\n", led_is_on() ? "on" : "off");
     }
     else if (command == 'd')
     {
         led_set(false);
-        printf("led %s\n", led_is_on() ? "on" : "off");
+        LOG_INF("led %s\n", led_is_on() ? "on" : "off");
+    }
+    else if (command == 'v')
+    {
+        log_version();
     }
     else
     {
-        printf("unknown command: %c\n", command);
+        LOG_ERR("unknown command: %c\n", command);
     }
 
     return;
@@ -65,6 +70,7 @@ int main()
             continue;
         }
 
+        LOG_DBG("got %c\n", command);
         handle_command(command);
     }
 }
