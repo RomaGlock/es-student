@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 
-#include "led/led.h"
-#include "logging/log.h"
-#include "device/device.h"
+#include "led.h"
+#include "log.h"
+#include "device.h"
 
 // константы
 const uint BUTTON_PIN = 15;
