@@ -2,11 +2,11 @@
 #include "hardware/regs/addressmap.h"
 #include "hardware/regs/sio.h"
 
-// константы
+// константы 
 const uint BUTTON_PIN = 15;
 const uint LED_PIN = 25;
 const uint DEBOUNCE_MS = 20;
-
+// функции
 bool get_button_debounce(uint pin)
 {
     bool state = gpio_get(pin);
