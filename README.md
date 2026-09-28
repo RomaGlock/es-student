@@ -1,3 +1,5 @@
+## Результаты проверок Модуль 1
+
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-1-1-1.yml/badge.svg)
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-1-1-2.yml/badge.svg)
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-1-1-3.yml/badge.svg)
@@ -13,6 +15,10 @@
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-1-3-5.yml/badge.svg)
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-1-3-6.yml/badge.svg)
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-1-3-7.yml/badge.svg)
+
+
+## Результаты проверок Модуль 2
+
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-2-1-1.yml/badge.svg)
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-2-1-2.yml/badge.svg)
 ![](https://github.com/RomaGlock/es-student/actions/workflows/check-2-1-3.yml/badge.svg)
