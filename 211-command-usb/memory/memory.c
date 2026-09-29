@@ -124,6 +124,9 @@ void fw_info(void)
     printf("%-16s 0x%08x %u\n", "data_variable", &data_variable, data_variable);
     printf("%-16s 0x%08x %u\n", "bss_variable", &bss_variable, bss_variable);
 
+    data_variable++;
+    bss_variable++;
+
     uint32_t stack_variable = 1946;
     uint32_t *heap_variable = malloc(sizeof(uint32_t));
 
