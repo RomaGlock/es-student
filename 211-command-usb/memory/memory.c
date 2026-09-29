@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include "hardware/regs/addressmap.h"
 #include "pico/stdlib.h"
 #include "memory.h"
+#include "command.h"
+#include "device.h"
 
 
 // memory.c
 
 static void row(const char *name, uintptr_t start, uintptr_t end)
 {
-    printf("%-10s 0x%08x 0x%08x %8u\n",
+    printf("%-16s 0x%08x 0x%08x %8u\n",
            name, (unsigned)start, (unsigned)end, (unsigned)(end - start));
 }
 
@@ -35,7 +38,7 @@ void mem_info(void)
     extern char __StackTop;
 
     // шапка таблицы: область, начало, конец, размер
-    printf("%-10s %-10s %-10s %-10s\n", "area", "start", "end", "size");
+    printf("%-16s %-16s %-16s %-16s\n", "area", "start", "end", "size");
 
 
     // flash — XIP_BASE и PICO_FLASH_SIZE_BYTES
@@ -91,4 +94,46 @@ void mem_info(void)
         mem_delta(&__StackBottom, &__StackTop));
 
 
+}
+
+int main(void);
+
+uint32_t data_variable = 100;
+uint32_t bss_variable;
+
+void fw_info(void)
+{
+    printf("%-16s %-10s %-16s\n", "object", "address", "value");
+    
+    uint16_t *main_code = (uint16_t *)((uintptr_t)main & ~1u);
+    printf("%-16s 0x%08x 0x%04x\n", "main", main, *main_code);
+
+    uint16_t *fw_info_code = (uint16_t *)((uintptr_t)fw_info & ~1u);
+    printf("%-16s 0x%08x 0x%04x\n", "fw_info", fw_info, *fw_info_code);
+
+    printf("%-16s 0x%08x\n", "commands", commands);
+
+    for (uint i = 0; i < command_count; i++)
+    {
+        uint16_t command_code = (uint16_t *)((uintptr_t)commands[i].handler & ~1u);
+        printf("- %-16s 0x%08x 0x%04x\n", commands[i].name, commands[i].handler, command_code);
+    }
+
+    printf("%-16s 0x%08x %s\n", "DEVICE_PROJECT", &DEVICE_PROJECT, DEVICE_PROJECT);
+    printf("%-16s 0x%08x %s\n", "DEVICE_BOARD", &DEVICE_BOARD, DEVICE_BOARD);
+    printf("%-16s 0x%08x %u\n", "data_variable", &data_variable, data_variable);
+    printf("%-16s 0x%08x %u\n", "bss_variable", &bss_variable, bss_variable);
+
+    uint32_t stack_variable = 1946;
+    uint32_t *heap_variable = malloc(sizeof(uint32_t));
+
+    if (heap_variable != NULL)
+    {
+        *heap_variable = 1951;
+    }
+
+    printf("%-16s 0x%08x %u\n", "stack_variable", &stack_variable, stack_variable);
+    printf("%-16s 0x%08x %u\n", "heap_variable", heap_variable, *heap_variable);
+
+    free(heap_variable);
 }
