@@ -28,25 +28,28 @@ typedef void (*command_handler_t)(void);
 void cmd_enable(void)
 {
     // включаем светодиод и сообщаем новое состояние
+    LOG_INF("led on");
     led_set(true);
 }
 
 void cmd_disable(void)
 {
     // выключаем светодиод и сообщаем новое состояние
+    LOG_INF("led off");
     led_set(false);
 }
 
 void cmd_info(void)
 {
     // печатаем паспорт устройства
-    log_version();
+    device_info();
+    
 }
 
 void cmd_version(void)
 {
     // печатаем строку журнала о версии прошивки
-    device_info();
+    log_version();    
 }
 
 void cmd_ping(void)

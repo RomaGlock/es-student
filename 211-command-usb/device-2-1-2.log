@@ -3,23 +3,30 @@
 устройство: 2e8a:000a
 серийный номер: E66098F29B477B39
 порт: COM23
-начало: 2026-09-28T16:06:56
+начало: 2026-09-29T15:10:26
    0.000 --> enable
-   0.124 <-- enable
-   0.125 <-- dbg read_line:106 got enable
-   2.126 --> disable
-   2.285 <-- disable
-   2.286 <-- dbg read_line:106 got disable
-   4.287 --> info
-   4.386 <-- info
-   4.386 <-- dbg read_line:106 got info
-   4.387 <-- device: es-led-module 1.0.0, built Sep 28 2026 14:24:46, log level 3
-   6.390 --> ping
-   6.487 <-- ping
-   6.487 <-- dbg read_line:106 got ping
-   6.487 <-- pong
-   8.489 --> nosuchcommand
-   8.768 <-- nosuchcommand
-   8.768 <-- dbg read_line:106 got nosuchcommand
-   8.769 <-- err handle_command:87 unknown command: nosuchcommand
-итог: отправлено команд 5, принято строк 13
+   0.137 <-- enable
+   0.138 <-- dbg read_line:116 got enable
+   0.639 <-- inf cmd_enable:31 led on
+   2.140 --> disable
+   2.298 <-- disable
+   2.299 <-- dbg read_line:116 got disable
+   2.799 <-- inf cmd_disable:38 led off
+   4.300 --> info
+   4.399 <-- info
+   4.400 <-- dbg read_line:116 got info
+   4.400 <-- project: 211-command-usb
+   4.401 <-- repo: https://github.com/RomaGlock/es-student
+   4.401 <-- board: pico
+   4.402 <-- serial: E66098F29B477B39
+   4.403 <-- chip: manufacturer 0x927, part 0x0002, revision 1
+   4.403 <-- pico-sdk: 2.3.0
+   6.404 --> ping
+   6.500 <-- ping
+   6.501 <-- dbg read_line:116 got ping
+   6.501 <-- pong
+   8.501 --> nosuchcommand
+   8.782 <-- nosuchcommand
+   8.783 <-- dbg read_line:116 got nosuchcommand
+   8.783 <-- err handle_command:97 unknown command: nosuchcommand
+итог: отправлено команд 5, принято строк 20
